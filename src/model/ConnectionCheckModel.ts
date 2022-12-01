@@ -44,13 +44,9 @@ export default class ConnectionCheckModel implements IConnectionCheckModel {
      */
     public async checkDB(): Promise<void> {
         while (true) {
-            try {
-                this.log.system.info('check db');
-                await this.dbOperator.checkConnection();
-                break;
-            } catch (err: any) {
-                await Util.sleep(1000);
-            }
+            this.log.system.info('check db');
+            await this.dbOperator.checkConnection();
+            break;
         }
     }
 }
