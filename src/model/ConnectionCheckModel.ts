@@ -28,15 +28,8 @@ export default class ConnectionCheckModel implements IConnectionCheckModel {
      * @return Promise<void>
      */
     public async checkMirakurun(): Promise<void> {
-        while (true) {
-            try {
-                this.log.system.info('check mirakurun');
-                await this.mirakurunClient.getStatus();
-                break;
-            } catch (err: any) {
-                await Util.sleep(1000);
-            }
-        }
+        this.log.system.info('check mirakurun');
+        await this.mirakurunClient.getStatus();
     }
 
     /**
